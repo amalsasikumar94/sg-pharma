@@ -213,22 +213,26 @@
     </footer>
 
     <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
-      <button class="dialog-close" type="button" aria-label="Close product details">×</button>
+      <button class="dialog-close" type="button" aria-label="Close product details"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg></button>
       <div class="dialog-image"><img id="dialog-image" alt="" /></div>
       <div class="dialog-copy">
-        <span class="product-category" id="dialog-category"></span>
+        <span class="dialog-tag" id="dialog-category"></span>
         <h2 id="dialog-title"></h2>
-        <p class="dialog-composition" id="dialog-composition"></p>
+        <div class="dialog-spec">
+          <span class="dialog-spec-label">Composition</span>
+          <p class="dialog-composition" id="dialog-composition"></p>
+        </div>
         <p class="dialog-disclaimer">
-          Product details shown from the supplied artwork. Please confirm current packaging and prescribing
-          information with our team.
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M8 7.2v4M8 4.9v.1"/></svg>
+          <span>Details are taken from the product artwork. Please confirm current packaging and prescribing
+          information with our team.</span>
         </p>
         <a class="button button-primary" id="dialog-contact" href="mailto:sgpharma.innovate@gmail.com">Ask about this product <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>
       </div>
       <div class="dialog-artwork">
         <div class="dialog-artwork-heading">
           <div>
-            <span class="section-number">SUPPLIED PRODUCT ARTWORK</span>
+            <span class="dialog-kicker">Supplied product artwork</span>
             <h3>More product information</h3>
           </div>
           <a id="dialog-artwork-link" href="" target="_blank" rel="noopener">View full image <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5"/></svg></span></a>

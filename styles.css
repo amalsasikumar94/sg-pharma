@@ -208,24 +208,33 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
 .footer-bottom a { display: inline-flex; align-items: center; gap: 6px; color: #c6d1de; }
 .footer-bottom .arrow svg { width: 11px; height: 11px; }
 
-.product-dialog { position: fixed; width: min(980px, calc(100% - 34px)); max-width: none; max-height: min(880px, calc(100% - 34px)); padding: 0; overflow: auto; overflow-x: hidden; border: 0; color: var(--ink); background: #fff; box-shadow: 0 25px 100px #06152b55; }
+.product-dialog { position: fixed; width: min(980px, calc(100% - 34px)); max-width: none; max-height: min(880px, calc(100% - 34px)); padding: 0; overflow: auto; overflow-x: hidden; border: 0; border-radius: 14px; color: var(--ink); background: #fff; box-shadow: 0 25px 100px #06152b55; }
 .product-dialog::backdrop { background: #091a31b8; backdrop-filter: blur(3px); }
-.dialog-close { position: absolute; z-index: 3; top: 12px; right: 14px; display: grid; place-items: center; width: 36px; height: 36px; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 50%; font-size: 23px; cursor: pointer; }
+.dialog-close { position: absolute; z-index: 3; top: 14px; right: 14px; display: flex; align-items: center; justify-content: center; flex: none; box-sizing: border-box; width: 38px; height: 38px; min-width: 38px; padding: 0; margin: 0; aspect-ratio: 1; color: var(--navy); background: #fff; border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 4px 14px #0e254118; -webkit-appearance: none; appearance: none; line-height: 0; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.dialog-close svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.dialog-close:hover { color: #fff; background: var(--navy); border-color: var(--navy); }
+.dialog-close:focus { outline: none; }
+.dialog-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .product-dialog[open] { animation: dialog-in .22s ease-out; }
 @keyframes dialog-in { from { opacity: 0; transform: translateY(10px) scale(.99); } to { opacity: 1; transform: none; } }
 .product-dialog { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: stretch; }
 .product-dialog[open] { display: grid; }
-.dialog-image { display: grid; min-width: 0; max-width: 100%; place-items: center; min-height: 330px; padding: 32px; background: radial-gradient(ellipse at center, #fff 20%, #edf5fc 100%); }
-.dialog-image img { max-width: 100%; max-height: 350px; object-fit: contain; }
+.dialog-image { display: flex; align-items: center; justify-content: center; min-width: 0; max-width: 100%; min-height: 360px; padding: 32px; overflow: hidden; background: radial-gradient(ellipse at center, #fff 20%, #edf5fc 100%); }
+.dialog-image img { max-width: 100%; max-height: 360px; border-radius: 8px; object-fit: contain; box-shadow: 0 14px 34px #16305218; }
 .dialog-copy { min-width: 0; max-width: 100%; align-self: center; padding: 48px 42px; }
-.dialog-copy h2 { margin: 10px 0 12px; color: var(--navy); font-family: var(--display); font-size: 31px; letter-spacing: -.06em; }
-.dialog-composition { margin-bottom: 14px; color: var(--navy); font-size: 14px; font-weight: 600; line-height: 1.65; }
-.dialog-disclaimer { margin-bottom: 22px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+.dialog-tag { display: inline-block; padding: 6px 10px; color: var(--blue); background: #eaf3fb; border-radius: 99px; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.dialog-copy h2 { margin: 14px 0 20px; color: var(--navy); font-family: var(--display); font-size: 32px; font-weight: 700; line-height: 1.1; letter-spacing: -.05em; }
+.dialog-spec { margin-bottom: 18px; padding: 14px 16px; background: var(--ice); border: 1px solid var(--line); border-radius: 8px; }
+.dialog-spec-label { display: block; margin-bottom: 6px; color: #8794a5; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.dialog-composition { margin: 0; color: var(--navy); font-size: 14px; font-weight: 600; line-height: 1.55; }
+.dialog-disclaimer { display: flex; gap: 9px; margin-bottom: 24px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+.dialog-disclaimer svg { flex: none; width: 15px; height: 15px; margin-top: 1px; fill: none; stroke: #8fa0b3; stroke-width: 1.4; stroke-linecap: round; }
+.dialog-kicker { color: #8a97a8; font-size: 9px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .dialog-artwork { grid-column: 1 / -1; min-width: 0; max-width: 100%; padding: 27px 32px 32px; border-top: 1px solid var(--line); background: #fbfdff; }
 .dialog-artwork-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 16px; }
 .dialog-artwork-heading h3 { margin: 8px 0 0; color: var(--navy); font-family: var(--display); font-size: 19px; letter-spacing: -.04em; }
 .dialog-artwork-heading > a { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-size: 10px; font-weight: 700; }
-.dialog-artwork > img { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid #e1e9f1; background: #fff; }
+.dialog-artwork > img { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid #e1e9f1; border-radius: 8px; background: #fff; }
 
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
 .reveal.is-visible { opacity: 1; transform: none; }
@@ -337,10 +346,14 @@ h1 em, h2 em { color: var(--blue); font-style: normal; }
   .copyright { width: 100%; padding-left: 2px; font-size: 8px; }
   .footer-bottom { font-size: 8px; }
   .product-dialog { grid-template-columns: minmax(0, 1fr); }
-  .dialog-image { min-height: 0; height: min(36vh, 250px); padding: 23px; }
+  .product-dialog { width: calc(100% - 24px); max-height: calc(100% - 24px); border-radius: 12px; }
+  .dialog-close { top: 10px; right: 10px; width: 36px; height: 36px; min-width: 36px; }
+  .dialog-image { min-height: 0; height: min(40vh, 280px); padding: 22px 22px 18px; }
   .dialog-image img { max-height: 100%; }
-  .dialog-copy { padding: 24px; }
-  .dialog-copy h2 { font-size: 26px; }
+  .dialog-copy { padding: 22px 20px 24px; }
+  .dialog-copy h2 { margin: 12px 0 16px; font-size: 27px; }
+  .dialog-composition { font-size: 13px; }
+  .dialog-copy .button { width: 100%; justify-content: space-between; }
   .dialog-artwork { padding: 22px 16px; }
   .dialog-artwork-heading { align-items: flex-start; flex-wrap: wrap; }
   .dialog-artwork-heading h3 { font-size: 17px; }
